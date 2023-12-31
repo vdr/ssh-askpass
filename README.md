@@ -1,7 +1,7 @@
 ssh-askpass
 ===========
 
-ssh-askpass for OS X/macOS. Works in (at least) 10.7+ (including Monterey)
+ssh-askpass for OS X/macOS. Works in 10.7+ (Lion). Tested in 10.14(Sonoma)
 
 Used to accept (or deny) the use of the private key(s) added to the SSH authentication agent with `ssh-add -c`.
 
@@ -13,24 +13,16 @@ Used to accept (or deny) the use of the private key(s) added to the SSH authenti
 
 ### [Homebrew](https://brew.sh/)
 * Run:
-
     ```
     $ brew install theseal/ssh-askpass/ssh-askpass
     ```
-* Follow caveats
 
-### [MacPorts](https://www.macports.org)
-* Install:
-
-    ```
-    $ sudo port install ssh-askpass
-    ```
-
-### Without Homebrew/MacPorts
+### Manual
 
 * Run:
 ```
 $ cp ssh-askpass /usr/local/bin/
+# Optional: install the LaunchAgent to start ssh-askpass on login
 $ cp ssh-askpass.plist ~/Library/LaunchAgents/
 $ launchctl load -w ~/Library/LaunchAgents/ssh-askpass.plist
 ```
