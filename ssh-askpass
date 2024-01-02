@@ -1,4 +1,5 @@
 #!/usr/bin/env osascript
+# Copyright (c) 2024-, Vincent De Rijcke <vincent_derijcke@hotmail.com>
 # Copyright (c) 2014-, Johan Wassberg <johan@rymdvarel.se>
 # Copyright (c) 2011-, Simon Lundström <simmel@soy.se>
 #
@@ -24,6 +25,8 @@ on run argv
     else
         set agent to POSIX file "/System/Applications/Utilities/Terminal.app/Contents/Resources/Terminal.icns"
     end if
+
+    set title to "OpenSSH agent ask-pass"
     set dialog_timeout to 15
 
     if args ends with ": " or args ends with ":" then
@@ -33,6 +36,8 @@ on run argv
             display dialog args with icon agent default button {get localized string of "OK"} default answer ""
         end if
         return result's text returned
+    else if args starts with "Confirm user presence" then
+        display notification args with title title
     else
         display dialog args with icon agent default button 1 giving up after dialog_timeout
         if gave up of result then

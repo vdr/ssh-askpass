@@ -3,30 +3,23 @@ ssh-askpass
 
 ssh-askpass for OS X/macOS. Works in 10.7+ (Lion). Tested in 10.14(Sonoma)
 
-Used to accept (or deny) the use of the private key(s) added to the SSH authentication agent with `ssh-add -c`.
+Used to accept (or deny) the use of the private key(s) added to the SSH authentication agent with `ssh-add`.
 
-![Screenshot](https://github.com/theseal/ssh-askpass/raw/master/sample/ssh-askpass.png)
+Also used for user presence verification when using FIDO2 security keys with OpenSSH.
+
+![image-20240102171237053](./README.assets/image-20240102171237053.png)
+
+
+
 
 **If you’re having trouble with ssh-askpass after OS upgrade, please follow the installation steps again.**
 
 ## Installation
 
 ### [Homebrew](https://brew.sh/)
-* Run:
-    ```
-    $ brew install theseal/ssh-askpass/ssh-askpass
-    ```
-
-### Manual
-
-* Run:
 ```
-$ cp ssh-askpass /usr/local/bin/
-# Optional: install the LaunchAgent to start ssh-askpass on login
-$ cp ssh-askpass.plist ~/Library/LaunchAgents/
-$ launchctl load -w ~/Library/LaunchAgents/ssh-askpass.plist
+$ brew install vdr/tap/ssh-askpass
 ```
-* No need to log out; you can add keys to the agent with `ssh-add -c`
 
 ## Enabling keyboard navigation
 For security reasons ssh-askpass defaults to cancel since it's too easy to
